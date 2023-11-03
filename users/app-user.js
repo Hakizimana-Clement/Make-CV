@@ -1,15 +1,15 @@
 const logoutBtn = document.querySelector(".logoutBtn");
 const accessToken = localStorage.getItem("accessToken");
+const loginAccessToken = localStorage.getItem("loginAccessToken");
 
 // logout
 logoutBtn.addEventListener("click", () => {
   localStorage.removeItem("accessToken");
+  localStorage.removeItem("loginAccessToken");
   location.assign("../login/login.html");
 });
 
 // location
-console.log(accessToken);
-if (!accessToken) {
+if (!accessToken && !loginAccessToken) {
   location.assign("../login/login.html");
 }
-console.log("yes");
