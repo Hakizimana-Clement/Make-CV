@@ -4,13 +4,115 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome back sir</title>
+    <style>
+      .newOne {
+        /* display: none; */
+        display: block;
+      }
+
+      .all-your-CV div {
+        border: 1px solid black;
+        margin-top: 1rem;
+        padding: 1rem;
+      }
+    </style>
   </head>
   <body>
-    <h1>Welcome back sir</h1>
     <button class="logoutBtn">logout</button>
+    <button class="allCV">View all your CV</button>
+    <button class="createCV">Create CV</button>
+
+    <!-- <div class="newOne"> -->
+    <div class="newOne">
+      <h2>Here all you cv</h2>
+      <div class="all-your-CV"></div>
+      <!-- cv container -->
+    </div>
+    <div class="container">
+      <h1>Create your CV</h1>
+
+      <form class="cv-form">
+        <input type="text" placeholder="Full name" name="fullName" required />
+        <span class="error"></span>
+        <br />
+        <br />
+        <input type="email" placeholder="Email" name="email" required />
+        <span class="error"></span>
+        <br />
+        <br />
+        <input
+          type="text"
+          placeholder="Education and qualification"
+          name="education"
+          required
+        />
+        <span class="error"></span>
+        <br />
+        <br />
+
+        <textarea
+          name="personalStatement"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Personal statement"
+          required
+        ></textarea>
+        <span class="error"></span>
+        <br />
+        <br />
+        <input type="text" placeholder="Skills" name="skills" required />
+        <span class="error"></span>
+        <br />
+        <br />
+        <input type="text" placeholder="Languages" name="languages" required />
+        <span class="error"></span>
+        <br />
+        <br />
+        <input
+          type="text"
+          placeholder="Certifications"
+          name="certifications"
+          required
+        />
+        <span class="error"></span>
+        <br />
+        <br />
+
+        <textarea
+          name="workExperience"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Work experience"
+          required
+        ></textarea>
+        <span class="error"></span>
+        <!-- <input type="text" placeholder="work experience" /> -->
+        <br />
+        <br />
+        <input
+          type="text"
+          placeholder="Hobbies and interests"
+          name="hobbiesAndInterests"
+          required
+        />
+        <br />
+        <br />
+
+        <button>Create your CV</button>
+      </form>
+      <!-- <span class="error"></span> -->
+      <p class="success"></p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- jsPDF -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
     <!-- axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <!-- javascript -->
-    <script src="app-user.js"></script>
+    <!-- <script src="app-user.js"></script> -->
+    <script src="app-new-testing.js"></script>
   </body>
 </html>

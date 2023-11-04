@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome back sir</title>
+    <style>
+      .newOne {
+        display: none;
+      }
+
+      .all-your-CV div {
+        border: 1px solid black;
+        margin-top: 1rem;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="logoutBtn">logout</button>
+    <button class="allCV">View all your CV</button>
+    <button class="createCV">create CV</button>
+
+    <!-- <div class="newOne"> -->
+    <div class="newOne">
+      <h2>Here all you cv</h2>
+      <!-- <div class="all-your-CV"></div> -->
+      <!-- cv container -->
+      <!-- <div class="container"> -->
+      <!-- basic info -->
+      <div>
+        <p><strong>Name:</strong> Adam Smith</p>
+        <p>
+          <strong> Phone: </strong>
+          +250 123 456 789
+        </p>
+        <p>
+          <strong> Email: </strong>
+          adam@gmail.com
+        </p>
+        <p>
+          <strong> Location: </strong>
+          Kigali, Rwanda
+        </p>
+        <p>
+          <strong>Personal Statement</strong> I am a qualified and experienced
+          doctor with a passion for providing quality health care to patients. I
+          have a strong background in general medicine, surgery, and emergency
+          care, as well as certifications in various specialties. I am looking
+          for a challenging and rewarding position in a reputable hospital where
+          I can apply my skills and knowledge to improve the well-being of the
+          community.
+        </p>
+      </div>
+      <!-- education and qualifications -->
+      <div>
+        <p>
+          <strong> Education and Qualifications </strong>
+          <br />
+        </p>
+        <ul>
+          <li>
+            <p>Doctor of Medicine (MD), University of Rwanda, 2020-2023</p>
+            <ul>
+              <li>Graduated with honors and distinction</li>
+              <li>
+                Awarded the Best Student Prize for outstanding academic
+                performance
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              Bachelor of Science (BSc) in Biomedical Sciences, University of
+              Rwanda, 2016-202
+            </p>
+            <ul>
+              <li>Graduated with a first-class honors degree</li>
+              <li>Published two research papers in peer-reviewed journals</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- work experience -->
+      <div>
+        <p>
+          <strong>Work Experience </strong>
+          <br />
+        </p>
+        <ul>
+          <li>
+            <p>
+              Resident Doctor, King Faisal Hospital, Kigali, Rwanda,
+              2023-present
+            </p>
+            <ul>
+              <li>
+                Provide medical care to patients in various departments,
+                including internal medicine, surgery, pediatrics, and obstetrics
+                and gynecology
+              </li>
+              <li>
+                Perform physical examinations, diagnose conditions, prescribe
+                treatments, and order tests and procedures
+              </li>
+              <li>
+                Assist senior doctors in performing complex surgeries and
+                procedures
+              </li>
+              <li>
+                Manage and supervise a team of 10 medical interns and nurses
+              </li>
+              <li>
+                Achieved a 95% patient satisfaction rate and a 90% recovery rate
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              Medical Intern, Kibagabaga Hospital, Kigali, Rwanda, 2022-2023
+            </p>
+            <ul>
+              <li>
+                Completed a one-year internship program in a busy public
+                hospital
+              </li>
+              <li>
+                Rotated through different departments, including emergency,
+                intensive care, and outpatient
+              </li>
+              <li>
+                Handled various medical cases, including trauma, infections,
+                chronic diseases, and maternal and child health
+              </li>
+              <li>
+                Learned from experienced doctors and specialists and received
+                positive feedback and evaluations
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- skills -->
+      <div>
+        <p>
+          <strong>Skills</strong>
+          <br />
+        </p>
+        <ul>
+          <li>
+            <p>Hard Skills</p>
+            <ul>
+              <li>
+                Proficient in various medical procedures, such as suturing,
+                intubation, catheterization, and CPR
+              </li>
+              <li>
+                Skilled in using medical software, such as Meditech, Epic, and
+                Cerner
+              </li>
+              <li>Fluent in English, French, and Kinyarwanda</li>
+            </ul>
+          </li>
+          <li>
+            <p>Soft Skills</p>
+            <ul>
+              <li>
+                Excellent communication and interpersonal skills with patients,
+                colleagues, and supervisors
+              </li>
+              <li>
+                Strong teamwork and collaboration skills in a multidisciplinary
+                environment
+              </li>
+              <li>
+                Effective problem-solving and decision-making skills in critical
+                situations
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- language -->
+      <div>
+        <p>
+          <strong>Languages</strong>
+          <br />
+        </p>
+        <ul>
+          <li>English: Native</li>
+          <li>French: Fluent</li>
+          <li>Kinyarwanda: Fluent</li>
+          <li>Swahili: Intermediate</li>
+        </ul>
+      </div>
+      <!-- Hobbies and interest-->
+      <div>
+        <p>
+          <strong>Hobbies and Interests</strong>
+          <br />
+        </p>
+        <ul>
+          <li>
+            Enjoy reading books and articles on medical topics and current
+            affairs
+          </li>
+          <li>
+            Passionate about traveling and learning about different cultures and
+            languages
+          </li>
+          <li>
+            Active member of the Rwanda Red Cross Society and volunteer in
+            various health campaigns and projects
+          </li>
+        </ul>
+      </div>
+      <!-- </div> -->
+    </div>
+    <div class="container">
+      <h1>Create your CV</h1>
+
+      <form class="cv-form">
+        <input type="text" placeholder="Full name" name="fullName" required />
+        <span class="error"></span>
+        <br />
+        <br />
+        <input type="email" placeholder="Email" name="email" required />
+        <span class="error"></span>
+        <br />
+        <br />
+        <textarea
+          name="personalStatement"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Personal statement"
+          required
+        ></textarea>
+        <span class="error"></span>
+        <!-- <input type="text" placeholder="Personal statement" /> -->
+        <br />
+        <br />
+        <input
+          type="text"
+          placeholder="Education and qualification"
+          name="education"
+          required
+        />
+        <span class="error"></span>
+        <br />
+        <br />
+        <input type="text" placeholder="Skills" name="skills" required />
+        <span class="error"></span>
+        <br />
+        <br />
+        <input type="text" placeholder="Languages" name="languages" required />
+        <span class="error"></span>
+        <br />
+        <br />
+        <input
+          type="text"
+          placeholder="Certifications"
+          name="certifications"
+          required
+        />
+        <span class="error"></span>
+        <br />
+        <br />
+
+        <textarea
+          name="workExperience"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Work experience"
+          required
+        ></textarea>
+        <span class="error"></span>
+        <!-- <input type="text" placeholder="work experience" /> -->
+        <br />
+        <br />
+        <input
+          type="text"
+          placeholder="Hobbies and interests"
+          name="hobbies"
+          required
+        />
+        <br />
+        <br />
+
+        <button>Create your CV</button>
+      </form>
+      <!-- <span class="error"></span> -->
+      <p class="success"></p>
+    </div>
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <!-- javascript -->
+    <script src="app-user.js"></script>
+  </body>
+</html>
