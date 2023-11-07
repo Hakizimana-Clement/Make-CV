@@ -6,21 +6,27 @@
     <title>Welcome back sir</title>
     <style>
       .newOne {
-        /* display: none; */
-        display: block;
+        display: none;
+        /* display: block; */
       }
-
+      /* .container {
+        display: none;
+      } */
       .all-your-CV div {
         border: 1px solid black;
         margin-top: 1rem;
         padding: 1rem;
       }
+      .success {
+        color: #007c00;
+        text-shadow: 0 0 black;
+      }
     </style>
   </head>
   <body>
     <button class="logoutBtn">logout</button>
-    <button class="allCV">View all your CV</button>
     <button class="createCV">Create CV</button>
+    <button class="allCV">View all your CV</button>
 
     <!-- <div class="newOne"> -->
     <div class="newOne">
@@ -106,13 +112,24 @@
       <p class="success"></p>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <!-- jsPDF -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
+    <!-- <script type="text/html" src="..dist/html2pdf.bundle.min.js"></script> -->
+    <!-- <script src="../dist/html2pdf.bundle.min.js"></script> -->
     <!-- axios -->
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script type="module" src="../dist_axios/dist/axios.min.js"></script>
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+    <!-- html2pdf-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script> -->
+    <!-- jspdf-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
+    <!-- <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"
+    ></script> -->
     <!-- javascript -->
     <!-- <script src="app-user.js"></script> -->
-    <script src="app-new-testing.js"></script>
+    <script type="module" src="app-new-testing.js"></script>
   </body>
 </html>

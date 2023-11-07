@@ -15,8 +15,6 @@ const container = document.querySelector(".container");
 const newContainer = document.querySelector(".newOne");
 const allYourCvContainer = document.querySelector(".all-your-CV");
 
-// all data from cv container
-
 // logout
 logoutBtn.addEventListener("click", () => {
   localStorage.removeItem("accessToken");
@@ -71,13 +69,16 @@ const createCV = async (data) => {
     //   if (data.target.elements.fullName.value.length === 0) {
     //   }
     // });
-    errorHandling.textContent = error.response.data.message;
+    errorHandling.textContent = allError;
   }
 };
 
 createCVBtn.addEventListener("click", () => {
-  container.style.display = "block";
-  newContainer.style.display = "none";
+  container.style.display = "none";
+  newContainer.style.display = "block";
+
+  // container.style.display = "block";
+  // newContainer.style.display = "none";
 });
 
 //////////////////////////////////////////////////////////////////////////
@@ -97,12 +98,13 @@ viewAllCVBtn.addEventListener("click", async () => {
   });
   // console.log(res.data);
   const allCV = res.data;
-  console.log(allCV);
+  // console.log(allCV);
 
   allCV.forEach((cv) => {
     // console.log(cv);
     // container
     const newContainerForCv = document.createElement("div");
+    // newContainerForCv.classList.add(`cv-${autoNameClassNumber}`);
 
     // name
     const fullNameEl = document.createElement("p");
@@ -203,11 +205,15 @@ viewAllCVBtn.addEventListener("click", async () => {
     listHobbiesAndInterestsEl.append(itemHobbiesAndInterestsEl);
     newContainerForCv.append(listHobbiesAndInterestsEl);
 
+    newContainerForCv.classList.add(`cv-${cv.id}`);
     // download btn
     const downloadBtn = document.createElement("button");
     downloadBtn.textContent = "download as PDF";
     newContainerForCv.append(downloadBtn);
-    downloadBtn.addEventListener("click", () => generatePDT(container));
+    downloadBtn.addEventListener("click", () => {
+      generatePDF(cv);
+    });
+
     // append
 
     // delete btn
@@ -219,24 +225,35 @@ viewAllCVBtn.addEventListener("click", async () => {
   });
 });
 
-const generatePDT = () => {
-  console.log("clicked");
-  const pdf = new jsPDF();
-  pdf.html(allYourCvContainer, {
-    callback: (pdf) => {
-      pdf.save("download.pdf");
-    },
+const generatePDF = (cv) => {
+  const containerToChangeInPdf = document.querySelector(`.cv-${cv.id}`);
+  // Create a new jsPDF object
+  const pdf = new jsPDF({
+    unit: "in",
+    format: "a4",
+    orientation: "portrait",
   });
+
+  let textLines = pdf
+    .setFont("times")
+    .setFontSize(12)
+    .splitTextToSize(containerToChangeInPdf.innerText, 7.25);
+
+  let verticalOffset = 0.5;
+
+  pdf.text(0.5, verticalOffset + 12 / 72, textLines);
+  verticalOffset += ((textLines.length + 0.5) * 12) / 72;
+  pdf.fromHTML(containerToChangeInPdf, 7, 7);
+  pdf.save(`${cv.fullName} CV.pdf`);
 };
 
 const deleteThis = async (id) => {
   console.log(id);
 
-  const choose = prompt(`If you want to delete Type `);
-  console.log(choose);
+  const choose = prompt(
+    `⚠ Do you want to delete  this CV??? Type "1" to delete it.⚠`
+  );
   if (parseInt(choose) === 1) {
-    console.log("yes");
-
     try {
       const res = await axios.delete(
         `http://localhost:3333/curriculum-vitaes/${id}`,
@@ -248,12 +265,11 @@ const deleteThis = async (id) => {
         }
       );
       location.assign("../users/deleteOk.html");
-      console.log(res);
     } catch (error) {
       console.log(error);
     }
   } else {
-    console.log("no");
+    console.log("Enter collect number ");
   }
 };
 // const personalStateomentEl = document.createElement("p");

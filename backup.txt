@@ -301,3 +301,97 @@
     <script src="app-user.js"></script>
   </body>
 </html>
+
+/// html2pdf
+
+
+      // Use html2pdf to generate the PDF
+      // Define your options
+      let opt = {
+        margin: [1, 1, 1, 1],
+        // margin: 10,
+        filename: `${cv.fullName} CV.pdf`,
+        // image: { type: "jpeg", quality: 1 },
+        html2canvas: { scale: 2 },
+        jsPDF: {
+          unit: "mm",
+          format: "a4",
+          orientation: "portrait",
+        },
+        // pagebreak: { mode: ["avoid-all"] },
+        pagebreak: { mode: ["css"] },
+        background: "red",
+        onBeforeSave: function (pdf) {
+          // You can perform additional actions before saving the PDF
+          // pdf.setFontSize(92);
+          pdf.setFontSize(200);
+          pdf.text("Centered Text at the Top", 15, 2, { align: "center" });
+        },
+      };
+      // html2pdf().set(opt).from(containerToChangeInPdf).save();
+      html2pdf().from(containerToChangeInPdf).set(opt).save();
+
+jsPDF  not working
+
+
+      // let doc = new jsPDF();
+      // Create a new jsPDF object
+
+      // let doc = new jsPDF({
+      //   unit: "mm",
+      //   format: "a4",
+      //   orientation: "portrait",
+      //   marginLeft: 10,
+      //   marginRight: 10,
+      // });
+      // let doc = new jsPDF("p", "in", "a4");
+      let doc = new jsPDF({
+        unit: "in",
+        format: "a4",
+        orientation: "portrait",
+        marginLeft: 10,
+        marginRight: 10,
+        page: 1,
+      });
+      // Add some text to the PDF document
+      // doc.fromHTML(containerToChangeInPdf, 10, 10);
+      // break the long text
+      let textLines = doc
+        .setFont("Arial")
+        .setFontSize(12)
+        .splitTextToSize(containerToChangeInPdf.innerText, 7.25);
+
+      let verticalOffset = 0.5;
+
+      doc.text(0.5, verticalOffset + 12 / 72, textLines);
+      verticalOffset += ((textLines.length + 0.5) * 12) / 72;
+      // Save the PDF document with a file name
+      doc.fromHTML(containerToChangeInPdf, 5, 5)
+      // doc.save(`${cv.fullName} CV.pdf`);
+      
+     default value in inch it's work 100% 
+      // Split Text
+      let textLines = pdf
+        .setFont("times")
+        .setFontSize(12)
+        .splitTextToSize(containerToChangeInPdf.innerText, 7.25);
+
+      let verticalOffset = 0.5;
+
+      pdf.text(0.5, verticalOffset + 12 / 72, textLines);
+      verticalOffset += ((textLines.length + 0.5) * 12) / 72;
+
+      pdf.fromHTML(containerToChangeInPdf, 5, 5);
+
+
+//////////////////////////////////////////////////////////////////////////
+Working 100%
+
+      // Create a new jsPDF object
+      const pdf = new jsPDF({
+        unit: "mm",
+        format: "a4",
+        orientation: "portrait",
+      });
+      pdf.fromHTML(containerToChangeInPdf, 7, 7);
+      pdf.save(`${cv.fullName} .pdf`);

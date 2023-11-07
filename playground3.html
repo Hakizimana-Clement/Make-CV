@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>playground 3</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Never let's me God</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nisi
+        praesentium unde? Cumque labore quia qui sequi repudiandae rem harum
+        ipsum error? Ipsa laboriosam voluptatum incidunt quae cum eaque aut.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam omnis
+        repellendus adipisci, similique atque architecto odit consectetur
+        exercitationem nobis? Odio, aspernatur. Laborum nobis voluptatum nam
+        doloribus enim neque accusamus omnis?
+      </p>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, sunt
+        beatae. Laudantium, veniam voluptate dolores officia illo labore
+        ducimus! Excepturi, voluptate. Voluptatem aut recusandae repudiandae
+        vel. Reiciendis officiis consequatur nam!
+      </p>
+    </div>
+    <button id="downloadPdf">Download PDF</button>
+
+    <!-- jsPDF and html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <script>
+      const container = document.querySelector(".container");
+      document.getElementById("downloadPdf").addEventListener("click", () => {
+        const doc = new jsPDF({
+          unit: "mm",
+          format: "a4",
+          orientation: "portrait",
+          marginLeft: 10,
+          marginRight: 10, // Set the right margin to the same value as the left margin to center the content
+        });
+
+        doc.setFont("helvetica");
+        doc.setFontSize(12);
+
+        // Measure the width of the text to be centered
+        const text = container;
+        const textWidth =
+          (doc.getStringUnitWidth(text) * doc.internal.getFontSize()) /
+          doc.internal.scaleFactor;
+
+        // Calculate the X position to center the text
+        const centerX = (doc.internal.pageSize.width - textWidth) / 2;
+
+        // Calculate the Y position (for example, position it 10mm from the top)
+        const centerY = 10;
+
+        doc.text(text, centerX, centerY);
+
+        doc.save("centered_text.pdf");
+      });
+    </script>
+  </body>
+</html>

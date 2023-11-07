@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>playground</title>
+    <!-- <script src="..dist/html2pdf.bundle.min.js"></script> -->
+    <script src="../client/dist/html2pdf.bundle.min.js"></script>
+    <!-- <style>
+     .table h2 {
+        width: 50%;
+        margin: 0 auto;
+      }
+    </style>  -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Name</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dolor
+        nihil hic exercitationem illo ex voluptatem minus deserunt tempore rerum
+        eligendi voluptatum corporis, vel temporibus molestias non, tenetur
+        fugit dolore.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, at
+        quidem est natus tempora consequatur quo, doloremque saepe nobis
+        reiciendis illo vel deleniti qui! Rerum nobis veniam a earum architecto.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error veniam
+        fuga illum deleniti repudiandae velit voluptatibus vitae vero voluptatem
+        aspernatur, eveniet praesentium exercitationem, quis repellat nam
+        consectetur repellendus molestias corrupti. Lorem ipsum dolor sit, amet
+      </p>
+      <p>
+        consectetur adipisicing elit. Odio saepe cum officiis tempore aliquam
+        optio, ipsa rem molestiae repudiandae dolorem perspiciatis quis eligendi
+        corrupti alias dolores accusamus eum voluptates. Natus!
+      </p>
+    </div>
+    <br />
+    <button id="download">Download as PDF</button>
+
+    <div class="maybe-container">
+      <div class="maybe maybe1">hello</div>
+      <div class="maybe maybe2">there</div>
+    </div>
+
+    <script>
+      // const oneT = document.querySelector(".maybe-container");
+      const oneT = document.querySelectorAll(".maybe");
+      // console.log(oneT);
+      oneT.forEach((o) => {
+        if (o.innerHTML === "hello") {
+          console.log("yes");
+          o.classList.contains("maybe1").innerHTML = "bye bye";
+        }
+        // console.log((o.innerHTML = "there"));
+      });
+      // palyground on targeting
+      const allP = document.querySelectorAll("p");
+      console.log(allP);
+      allP.forEach((p) => {
+        console.log(p);
+        p.addEventListener("click", () => {
+          console.log(p);
+          p.style.color = "red";
+        });
+      });
+
+      // increase by 1
+      let lives = 1;
+      function test() {
+        lives++;
+        console.log(`You have ${lives} lives left.`); // print the value of lives
+      }
+
+      // download pdf
+      document.querySelector("#download").onclick = function () {
+        let containerToChangeInPdf = document.querySelector(".container");
+        let opt = {
+          margin: 1,
+          filename: "my cv.pdf",
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+        };
+
+        // New Promise-based usage:
+        html2pdf().set(opt).from(containerToChangeInPdf).save();
+      };
+    </script>
+  </body>
+</html>

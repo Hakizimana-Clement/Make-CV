@@ -1,0 +1,14 @@
+{
+  "name": "makecv",
+  "version": "1.0.0",
+  "description": "This is client of make cv project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "H.Clement",
+  "license": "ISC",
+  "dependencies": {
+    "jspdf": "^2.5.1"
+  }
+}
